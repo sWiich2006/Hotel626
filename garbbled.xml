@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+	<!-- Register log engines -->
+	<log filterLevel="DEBUG" filterByEquality="false">
+		<engine name="Trace" active="false" />
+		<engine name="AirLogger" active="false" />
+		<engine name="SOSMax" active="false" />
+		<engine name="Firebug" active="false" />
+	</log>
+	<tracer active="true"/>
+
+	<!-- site files -->
+	<files>
+		<!--xml-->
+		<audio>xml/audio.xml</audio>
+		<!--assets-->
+		<assetFactory>assets/factories/assetFactory.swf</assetFactory>
+		<fontFactory>assets/factories/fontFactory.swf</fontFactory>
+		<logo>assets/factories/logo.swf</logo>
+		<!--<glitchText>assets/global/garbbled.xml</glitchText>-->
+		<!--video-->
+		<introMovie>assets/intro/intro_explode.flv</introMovie>
+		<!--external-->
+		<!-- useFacebookHelper defines weither or not the query string is appended to the facebook helper url. no backend = no deeplink = useFacebookHelper:false-->
+		<useFacebookHelper>false</useFacebookHelper>
+		<!-- set to the baseurl of the site, facebook posts WILL NOT HAVE DEEPLINKS, but it will work without the backend -->
+		<!--<facebookHelper>http://205.139.43.78/share/FacebookWallPost.aspx</facebookHelper>-->
+		<facebookHelper>http://www.doritos.com/</facebookHelper>
+		<headerBase>header/index.aspx?url=</headerBase>
+	</files>
+
+	<!-- intro video timing -->
+	<introTiming>
+		<createTriangles>3.2</createTriangles>
+		<videoEnd>4.1</videoEnd>
+	</introTiming>
+	
+	<!-- backend service calls -->
+	<services active="true">
+		<endpoint>gateway.aspx</endpoint>
+		<namespace>doritos.services</namespace>
+		<service id="VotingService">
+			<submitVote>castVote</submitVote>
+			<getResults>getPollResults</getResults>
+		</service>
+	</services>
+	
+	<!-- used for sharing on facebook, etc -->
+	<baseURL>http://www.doritos.com/</baseURL>
+
+	<!-- include a message on twitter post (currently broken in Twitter API) -->
+	<allowTwitterMessages>true</allowTwitterMessages>
+	
+	<!-- FPS meter -->
+	<meter active="false" />
+	
+	<!-- Tracking -->
+	<metrics active="true"/>
+	
+	<!-- mute on start (debug) -->
+	<mute>false</mute>
+	
+	<!-- debug/developer menu -->
+	<debugMenu active="false"/>
+	
+	<!-- guides -->
+	<rulers active="false"/>
+	
+
+</root>
